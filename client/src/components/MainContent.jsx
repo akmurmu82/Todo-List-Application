@@ -4,11 +4,11 @@ import TodoActions from "./TodoActions";
 import TodoList from "./TodoList";
 import Pagination from "./Pagination";
 
-const MainContent = ({ onAddTodo, onEditTodo, onAddNote }) => {
+const MainContent = ({ onAddTodo, onEditTodo, onDeleteTodo, onAddNote }) => {
     return (
         <section className="flex-1 flex flex-col gap-4">
             <TodoActions onAddTodo={onAddTodo} />
-            <TodoList onEditTodo={onEditTodo} onAddNote={onAddNote} />
+            <TodoList onEditTodo={onEditTodo} handleDeleteTodo={onDeleteTodo} onAddNote={onAddNote} />
             <Pagination />
         </section>
     );

@@ -1,6 +1,6 @@
 // Component: components/TodoCard.jsx
 
-const TodoCard = ({ todo, onEdit, onAddNote }) => {
+const TodoCard = ({ todo, onEdit, onAddNote, onDelete }) => {
     return (
         <div className="flex justify-between border-b py-4">
             <div>
@@ -28,7 +28,7 @@ const TodoCard = ({ todo, onEdit, onAddNote }) => {
             <div className="flex gap-2 items-start">
                 <button title="Note" onClick={onAddNote}>📝</button>
                 <button title="Edit" onClick={onEdit}>✏️</button>
-                <button title="Delete">🗑️</button>
+                <button title="Delete" onClick={() => onDelete(todo._id)}>🗑️</button>
             </div>
         </div>
     );

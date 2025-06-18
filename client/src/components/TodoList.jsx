@@ -3,7 +3,7 @@
 import TodoCard from "./TodoCard";
 import { useSelector } from "react-redux";
 
-const TodoList = ({ onEditTodo, onAddNote }) => {
+const TodoList = ({ onEditTodo, handleDeleteTodo, onAddNote }) => {
     const todos = useSelector((state) => state.todos.list);
 
     return (
@@ -17,6 +17,7 @@ const TodoList = ({ onEditTodo, onAddNote }) => {
                         todo={todo}
                         onEdit={() => onEditTodo(todo)}
                         onAddNote={() => onAddNote(todo._id)}
+                        onDelete={(id) => handleDeleteTodo(id)}
                     />
                 ))
             )}

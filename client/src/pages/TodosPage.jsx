@@ -8,7 +8,7 @@ import MainContent from "../components/MainContent";
 import TodoFormModal from "../components/TodoFormModal";
 import NoteModal from "../components/NoteModal";
 import { useDispatch, useSelector } from "react-redux";
-import { createTodo, editTodo, createNote } from "../redux/todosSlice";
+import { createTodo, editTodo, createNote, removeTodo } from "../redux/todosSlice";
 
 const TodosPage = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,12 @@ const TodosPage = () => {
   const handleEditTodo = (todo) => {
     setEditTodoData(todo);
     setIsTodoModalOpen(true);
+  };
+
+  const handleDeleteTodo = (id) => {
+    if (window.confirm("Are you sure you want to delete this todo?")) {
+      dispatch(removeTodo(id));
+    }
   };
 
   const handleSubmitTodo = (todoData) => {
@@ -60,6 +66,7 @@ const TodosPage = () => {
         <MainContent
           onAddTodo={handleAddTodo}
           onEditTodo={handleEditTodo}
+          onDeleteTodo={handleDeleteTodo}
           onAddNote={handleOpenNote}
         />
       </main>
