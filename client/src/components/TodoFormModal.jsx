@@ -1,7 +1,9 @@
 // Component: components/TodoFormModal.jsx
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const TodoFormModal = ({ isOpen, onClose, onSubmit, initialData = {} }) => {
+  const { loading, error } = useSelector((state) => state.todos);
   const [title, setTitle] = useState(initialData?.title || "");
   const [description, setDescription] = useState(initialData?.description || "");
   const [priority, setPriority] = useState(initialData?.priority || "medium");
@@ -28,7 +30,7 @@ const TodoFormModal = ({ isOpen, onClose, onSubmit, initialData = {} }) => {
         <input value={tags} onChange={e => setTags(e.target.value)} className="w-full mb-3 p-2 border rounded" placeholder="Tags (comma separated)" />
         <div className="flex justify-end gap-2">
           <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">Cancel</button>
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded disable">{loading ? "Saving..." : "Save"}</button>
         </div>
       </form>
     </div>

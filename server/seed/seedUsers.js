@@ -5,11 +5,11 @@ dotenv.config();
 const User = require("../models/User");
 
 const users = [
-  { username: "john_doe", displayName: "John Doe" },
-  { username: "jane_smith", displayName: "Jane Smith" },
-  { username: "bob_brown", displayName: "Bob Brown" },
-  { username: "alice_johnson", displayName: "Alice Johnson" },
-  { username: "charlie_davis", displayName: "Charlie Davis" },
+  { username: "john_doe", displayName: "John Doe", profile: "" },
+  { username: "jane_smith", displayName: "Jane Smith", profile: "" },
+  { username: "bob_brown", displayName: "Bob Brown", profile: "" },
+  { username: "alice_johnson", displayName: "Alice Johnson", profile: "" },
+  { username: "charlie_davis", displayName: "Charlie Davis", profile: "" },
 ];
 
 const seed = async () => {

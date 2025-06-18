@@ -1,8 +1,10 @@
 // Component: components/Header.jsx
 import UserSwitcher from "./UserSwitcher";
 import Avatar from "./Avatar";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const user = useSelector((state) => state.users.currentUser);
   return (
     <header className="bg-white shadow px-4 py-3 flex justify-between items-center">
       <h1 className="text-2xl font-bold">Todo List</h1>
@@ -11,7 +13,7 @@ const Header = () => {
           Export
         </button>
         <UserSwitcher />
-        <Avatar username="Current User" />
+        <Avatar username={user?.displayName || "Username"} />
       </div>
     </header>
   );
