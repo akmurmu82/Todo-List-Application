@@ -1,17 +1,20 @@
 // Component: components/TodoList.jsx
-
-import TodoCard from "./TodoCard";
 import { useSelector } from "react-redux";
+import TodoCard from "./TodoCard";
 
-const TodoList = ({ onEditTodo, handleDeleteTodo, onAddNote }) => {
+const TodoList = ({ onEditTodo, onAddNote, handleDeleteTodo, searchTerm = "" }) => {
     const todos = useSelector((state) => state.todos.list);
+
+    const filteredTodos = todos.filter((todo) =>
+        todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className="bg-white rounded-lg shadow p-4">
-            {todos.length === 0 ? (
+            {filteredTodos.length === 0 ? (
                 <div>No todos found.</div>
             ) : (
-                todos.map((todo) => (
+                filteredTodos.map((todo) => (
                     <TodoCard
                         key={todo._id}
                         todo={todo}
