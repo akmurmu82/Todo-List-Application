@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 const TodoFormModal = ({ isOpen, onClose, onSubmit, initialData = {} }) => {
-  const { loading, error } = useSelector((state) => state.todos);
+  const { loading } = useSelector((state) => state.todos);
   const [title, setTitle] = useState(initialData?.title || "");
   const [description, setDescription] = useState(initialData?.description || "");
   const [priority, setPriority] = useState(initialData?.priority || "medium");
