@@ -1,7 +1,7 @@
 // Component: services/api.js
 import axios from "axios";
 
-const VITE_BACKEND_BASE_URL = `${import.meta.env.VITE_BACKEND_BASE_URL0}/api`;
+const VITE_BACKEND_BASE_URL = `${import.meta.env.VITE_BACKEND_BASE_URL}/api`;
 
 export const fetchUsers = () => axios.get(`${VITE_BACKEND_BASE_URL}/users`);
 
